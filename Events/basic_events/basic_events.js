@@ -28,9 +28,13 @@ const event_element = document.getElementById("event_emmiter_element");
 
 event_element.addEventListener("click", (e) => {
   event_name.innerHTML = "CLICK";
+  console.log(e);
+  console.log("Event Type",e.type)
 });
 event_element.addEventListener("mouseover", (e) => {
   event_name.innerHTML = "MOUSE OVER";
+  console.log(e);
+  console.log("Event Type",e.type)
 });
 
 event_element.addEventListener("mouseout", (e) => {
@@ -44,6 +48,8 @@ event_element.addEventListener("mouseup", (e) => {
 });
 event_element.addEventListener("mousemove", (e) => {
   event_name.innerHTML = "MOUSE MOVE";
+  console.log(e);
+  console.log("Event Type",e.type)
 });
 
 //Not supported for divs -  no action here

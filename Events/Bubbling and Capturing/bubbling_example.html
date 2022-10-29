@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbling example</title>
+    <style>
+        body * {
+            margin:1rem;
+            border: 2pz solid black;
+        }
+    </style>
+</head>
+<body onclick="alert('bubbling reached here')">
+    <form onclick="alert('form: '+event['data'])">
+    <div onclick="alert('div: '+event['data']);">
+        <p onclick="alert('p'); event['data']='datapassed'">CLICK ME </p>
+    </div>
+</form>
+
+The event the is generated on the p-element i.e the click event bubbles 
+and reaches the parent element.
+
+To stop bubbling use event.stopPropogation
+This will stop the event to propogate to the parent element,
+incase the element where the handler has multiple event listeners those event
+listeners will be executed
+
+i.e 
+element.addEventListener('click',(e)=>{alert(1); e.stopPropogation()})
+element.addEventListener('click',()=>alert(2))
+
+Here the bubbling will stop but the calling of the second handler wont stop
+
+</body>
+</html>
