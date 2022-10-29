@@ -1,3 +1,4 @@
+<!-- From here https://javascript.info/bubbling-and-capturing -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +9,13 @@
     <style>
         body * {
             margin:1rem;
-            border: 2pz solid black;
+            border: 2px solid black;
+            font-family: monospace;
         }
     </style>
 </head>
 <body onclick="alert('bubbling reached here')">
-    <form onclick="alert('form: '+event['data'])">
+    <form onclick="alert('form: '+event['data']);">
     <div onclick="alert('div: '+event['data']);">
         <p onclick="alert('p'); event['data']='datapassed'">CLICK ME </p>
     </div>
@@ -31,7 +33,11 @@ i.e
 element.addEventListener('click',(e)=>{alert(1); e.stopPropogation()})
 element.addEventListener('click',()=>alert(2))
 
-Here the bubbling will stop but the calling of the second handler wont stop
+Here the bubbling will stop but the calling of the second handler wont stop.
 
+At any point the event.target will give the element that triggered 
+the event whereas the 'this' keyword will give the element whose handler is
+currently handling the event.
+Therefore this === event.target may be true sometimes
 </body>
 </html>
