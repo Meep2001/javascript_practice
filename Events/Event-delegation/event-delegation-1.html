@@ -1,0 +1,42 @@
+<!-- https://javascript.info/event-delegation -->
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation-1</title>
+</head>
+
+<body>
+    <div id="menu">
+        <button data-action="save">SAVE</button>
+        <button data-action="load">LOAD</button>
+        <button data-action="search">SEARCH</button>
+    </div>
+    <script>
+        class Menu {
+            constructor(elem) {
+                this._elem = elem;
+                elem.onclick = this.onClick.bind(this);
+            }
+            save() {
+                alert('save');
+            }
+            load() {
+                alert('load');
+            }
+            search() {
+                alert('search');
+            }
+            onClick(event) {
+                const action = event.target.dataset.action;
+                this[action]();
+            }
+        }
+        new Menu(menu);
+    </script>
+</body>
+
+</html>
