@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: monospace;
+        }
+        #event_emmiter_element{
+            width: 8vw;
+            height: 5vh;
+            align-content: center;
+            background-color:black;
+            color:white;
+            font-size: medium;
+            padding: 1rem;
+            margin: auto auto auto auto;
+        }
+
+        #events{
+            font-size: medium;
+        }
+        #event_name{
+            font-style: italic;
+            font-size: 1.5rem;
+            margin-left: 3rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="event_emmiter_element">
+        I WILL EMIT EVENTS
+    </div>
+    <div id="events">Event Emmited <span id="event_name"></span></div>
+    <script src="./basic_events.js"></script>
+</body>
+</html>
