@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbling and capturing</title>
+</head>
+
+<body>
+    <h1 id="elem">Hello from the script</h1>
+    <script>
+        const elements = document.querySelectorAll("*");
+        for (let e of elements) {
+            e.addEventListener("hello", (event) => {
+                alert(`${e.tagName} : HELLO EVENT`);
+            });
+            e.addEventListener("hello", (event) => {
+                alert(`${e.tagName} : HELLO EVENT`)
+            },true);
+        }
+        let customEvent = new Event("hello", { bubbles: true});
+        elem.dispatchEvent(customEvent);
+    </script>
+</body>
+
+</html>

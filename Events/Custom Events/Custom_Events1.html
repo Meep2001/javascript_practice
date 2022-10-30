@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DISPATCH EVENT</title>
+</head>
+
+<body id="b">
+    <button id="elem" onclick="alert('CLICKED!')">CLICK</button>
+    <script>
+        let event = new Event('click');
+        setTimeout(() => elem.dispatchEvent(event), 2000);
+
+        elem.addEventListener('custom-event', () => { alert('CUSTOM EVENT TRIGGERED'); });
+
+        let customEvent = new Event('custom-event');
+        setTimeout(() => elem.dispatchEvent(customEvent), 5000);
+
+    </script>
+</body>
+
+</html>

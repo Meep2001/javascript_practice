@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Event Class</title>
+</head>
+
+<body>
+    <h1 id="elem">IM H1</h1>
+    <script>
+        elem.addEventListener("Hello", (e) => {
+            console.log(e); console.log(e.detail.name);
+        })
+        const event = new CustomEvent("Hello", {
+            bubbles: true,
+            detail: { name: "SSSSSS" }
+        })
+        elem.dispatchEvent(event);
+    </script>
+</body>
+
+</html>

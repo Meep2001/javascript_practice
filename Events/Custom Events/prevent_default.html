@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prevent_default</title>
+</head>
+
+<body>
+    <h1 id="rabbit">RABBIT</h1>
+    <button onclick="hide()">HIDE</button>
+    <script>
+        function hide() {
+            const event = new CustomEvent("hide", {
+                cancelable: true // without this flag preventDefault wont work    
+            });
+
+            rabbit.addEventListener("hide", (e) => {
+                if (confirm("Call preventDefault"))
+                    e.preventDefault(); // this will return false
+            });
+
+            if (!rabbit.dispatchEvent(event))
+                alert("This was prevented by event.preventDefault");
+            else
+                rabbit.hidden = true;
+
+            
+        }
+    </script>
+</body>
+
+</html>
