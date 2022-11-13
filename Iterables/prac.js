@@ -3,31 +3,31 @@ const fruits = {
     name: "Apple",
   },
   2: {
-    name: "grapes",
+    name: "2",
   },
   3: {
-    name: "mango",
+    name: "3",
   },
   4: {
-    name: "banana",
+    name: "4",
   },
-  length: 4,
+  5: {
+    name: "5",
+  },
+  length: 5,
 };
 
 fruits[Symbol.iterator] = function () {
   return {
     current: 1,
-    last: this.length,
+    length: this.length,
     next: function () {
-      console.log("NEXT CALLED", this.current, this.length);
-      if (this.current < this.last) {
-        return {
-          value: fruits[this.current++].name,
-          done: false,
-        };
-      }
-      return { done: true };
+      return {
+        value: fruits[this.current++],
+        done: !(this.current <= this.length+1),
+      };
     },
   };
 };
-for (const fruit of fruits) console.log(fruit);
+
+for (let fruit of fruits) console.log(fruit);
